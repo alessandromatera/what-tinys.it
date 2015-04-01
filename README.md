@@ -42,7 +42,7 @@ To do that follow these steps:
 	* Watch PIN `13 - JP5` to Arduino PIN `13`
 	* Watch PIN `V+ - JP1` to Arduino PIN `+3.3V`
 	* Watch PIN `GND - JP2` to Arduino PIN `GND`
-7. On Mac terminal (i think is similar for Windows/Linux user) write this
+7. On Mac terminal (i think is similar for Windows/Linux users) write this
 	```
 	avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xDE:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
 	```
