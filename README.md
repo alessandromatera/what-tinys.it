@@ -21,9 +21,11 @@ When the button is pressed for a small period of time, the button's interrupt oc
 ####Upload the sketch
 To Upload the firmware i use avr in Mac terminal and an Arduino UNO as ISP programmer. 
 To do that follow this steps:
+
 1. Connect the Arduino UNO board to PC or Mac.
 2. Select the ArduinoISP sketch from File -> Examples
 3. Upload the sketch to the Arduino UNO board
+4. Open the watch sketch
 
 This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code:
 ```
