@@ -27,7 +27,7 @@ To do that follow these steps:
 3. Upload the sketch to the Arduino UNO board
 4. Open the watch sketch
 5. Compile the sketch using Arduino IDE
-6. Connect the SPI watch pins to Arduino UNO pins lin this way:
+6. Connect the SPI watch pins to Arduino UNO pins in this way:
 	* Watch PIN `Reset - JP6` to Arduino PIN `10`
 	* Watch PIN `11 - JP3` to Arduino PIN `11`
 	* Watch PIN `12 - JP4` to Arduino PIN `12`
@@ -41,9 +41,10 @@ To do that follow these steps:
 	
 	where:
 	 - `tty.usbmodemfa131` is the serial port of Arduino board
-	 - `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling `verbose output` from `Preferences -> Show Verbose output during: -> compilation`
+	 - `/path/of/your/hex/file.hex` is the path of `.hex` file that can be taken from the Arduino IDE enabling `verbose output` from `Preferences -> Show Verbose output during: -> compilation`
 	
-All this stuff because i wanted to program the board using SPI not using Arduino bootloader. I Think that the watch can be programmed like an Arduino UNO using the `breadboard 8Mhz` bootloader and soldering two wires to pin `0` and `1` of the watch, but i've not tried it.
+All this stuff because i wanted to program the board using SPI not using Arduino bootloader. I Think that the watch can be programmed like an Arduino UNO using the `breadboard 8Mhz internal oscillator` bootloader and soldering two wires to pin `0` and `1` of the watch, but i've not tried it.
+
 I've have used fuses for disabling `BOD` so you need to modify the bootloader of Arduino to do this. (Maybe you can do this in sketch?).
 
 ####The Case
