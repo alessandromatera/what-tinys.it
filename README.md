@@ -35,10 +35,13 @@ To do that follow this steps:
 	* Watch PIN `+` to Arduino PIN `3.3V`
 	* Watch PIN `-` to Arduino PIN `GND`
 7. On Mac terminal (i think is similar to windows user) write this
-	`avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i`
+	```
+	avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
+	```
+	
 	where:
 	 - `tty.usbmodemfa131` is the serial port of Arduino board
-	 - `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling "verbose output" from `Preferences -> Show Verbose output during: -> compilation`
+	 - `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling `verbose output` from `Preferences -> Show Verbose output during: -> compilation`
 	
 	
 
