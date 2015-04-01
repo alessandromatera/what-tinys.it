@@ -1,0 +1,1 @@
+avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
