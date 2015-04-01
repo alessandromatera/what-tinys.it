@@ -23,8 +23,8 @@ To Upload the firmware i use avr in Mac terminal. This because i wanted to progr
 avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
 ```
 where:
- *`tty.usbmodemfa131` is the serial port of Arduino
- *`/path/of/your/hex/file.hex` is the path of .hex file that can be thaken from the Arduino IDE enabling verbose output from Preferences->Show Verbose output during: -> compilation
+ `tty.usbmodemfa131` is the serial port of Arduino
+ `/path/of/your/hex/file.hex` is the path of .hex file that can be thaken from the Arduino IDE enabling verbose output from Preferences->Show Verbose output during: -> compilation
 
 
 ####The Case
