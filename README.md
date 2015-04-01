@@ -28,7 +28,7 @@ To do that follow this steps:
 4. Open the watch sketch
 5. Compile the sketch using Arduino IDE
 6. Connect the SPI watch pins to Arduino UNO pins like this
-	*Watch PIN	Arduino PIN
+	* Watch PIN	Arduino PIN
 	10	10
 
 This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code:
