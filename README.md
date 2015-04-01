@@ -8,6 +8,7 @@ I wanted to use Attiny85 microcontroller from my Tinys board [Tinys](http://www.
 For perfect timing i've used a 32.768 KHz Crystal connected to Xtal pins of Atmega328p running in asynchronous mode. In this way i can use internal 8Mhz oscillator as main clock of the microcontroller and the overflow of timer2 (used for the external crystal) as interrupt for increase the seconds.
 
 Why 32.768Khz Crystal? Because using prescaler to 128 we have 256 Hz, so 1 overflow/sec. It's the most used crystal for watches for this reason.
+
 What about the name? Well, my web site is [Tinys.it](http://www.tinys.it/) :D
 
 ####The Project
@@ -21,10 +22,12 @@ The watch is powered by a 3 Volt CR2032 battery. With this battery the LEDs resi
 
 ####The Firmware
 After setup the timer2 overflow interrupt and the button change-pin interrupt, the microcontroller goes to sleep. Every time the timer2 goes overflow (1 overflow/seconds) the microcontroller wakes up and increase the seconds. 
+
 When the button is pressed for a small period of time, the button's interrupt occur and the time is show up. Instead, if the button is pressed for two seconds, we entering in programming mode, where we can set the time: after all LEDs are turned on, we can release the button and the current hours LED is turned on. Pressing one time the button hours change to the next. To record the current hours you need to press the button for about 2 seconds. After the hours LED is switched off, release the button and the minutes LED is turned on. Like the hours LED push the button to choose the right minutes and then long press to record the minutes. After the minutes LED is turned off, all LEDs is turned on. The corrected time is show up.
 
 ####Upload the sketch
 To Upload the firmware i use avr in Mac terminal and an Arduino UNO as ISP programmer. 
+
 To do that follow these steps:
 
 1. Connect the Arduino UNO board to PC or Mac.
