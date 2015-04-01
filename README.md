@@ -18,13 +18,20 @@ The watch is powered by a 3 Volt CR2032 battery. With this battery the LEDs resi
 After setup the timer2 overflow interrupt and the button change-pin interrupt, the microcontroller goes to sleep. Every time the timer2 goes overflow (1 overflow/seconds) the microcontroller wakes up and increase the seconds. 
 When the button is pressed for a small period of time, the button's interrupt occur and the time is show up. Instead, if the button is pressed for two seconds, we entering in programming mode, where we can set the time: after all LEDs are turned on, we can release the button and the current hours LED is turned on. Pressing one time the button hours change to the next. To record the current hours you need to press the button for about 2 seconds. After the hours LED is switched off, release the button and the minutes LED is turned on. Like the hours LED push the button to choose the right minutes and then long press to record the minutes. After the minutes LED is turned off, all LEDs is turned on. The corrected time is show up.
 
-To Upload the firmware i use avr in Mac terminal. This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code:
+####Upload the sketch
+To Upload the firmware i use avr in Mac terminal and an Arduino UNO as ISP programmer. 
+To do that follow this steps:
+1. Connect the Arduino UNO board to PC or Mac.
+2. Select the ArduinoISP sketch from File -> Examples
+3. Upload the sketch to the Arduino UNO board
+
+This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code:
 ```
 avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
 ```
 where:
 
- `tty.usbmodemfa131` is the serial port of Arduino
+ `tty.usbmodemfa131` is the serial port of Arduino board
  
  `/path/of/your/hex/file.hex` is the path of .hex file that can be thaken from the Arduino IDE enabling verbose output from Preferences->Show Verbose output during: -> compilation
 
