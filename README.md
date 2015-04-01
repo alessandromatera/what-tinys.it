@@ -23,7 +23,7 @@ To Upload the firmware i use avr in Mac terminal and an Arduino UNO as ISP progr
 To do that follow this steps:
 
 1. Connect the Arduino UNO board to PC or Mac.
-2. Select the ArduinoISP sketch from File -> Examples
+2. Select the ArduinoISP sketch from `File -> Examples`
 3. Upload the sketch to the Arduino UNO board
 4. Open the watch sketch
 5. 
@@ -34,9 +34,8 @@ avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -
 ```
 where:
 
- `tty.usbmodemfa131` is the serial port of Arduino board
- 
- `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling "verbose output" from `Preferences -> Show Verbose output during: -> compilation`
+ - `tty.usbmodemfa131` is the serial port of Arduino board
+ - `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling "verbose output" from `Preferences -> Show Verbose output during: -> compilation`
 
 
 ####The Case
