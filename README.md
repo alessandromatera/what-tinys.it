@@ -28,8 +28,13 @@ To do that follow this steps:
 4. Open the watch sketch
 5. Compile the sketch using Arduino IDE
 6. Connect the SPI watch pins to Arduino UNO pins like this
-	* Watch PIN	Arduino PIN
-	10	10
+	* Watch PIN `Reset` to Arduino PIN `10`
+	* Watch PIN `11` to Arduino PIN `11`
+	* Watch PIN `12` to Arduino PIN `12`
+	* Watch PIN `13` to Arduino PIN `13`
+	* Watch PIN `+` to Arduino PIN `3.3V`
+	* Watch PIN `-` to Arduino PIN `GND`
+	
 
 This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code:
 ```
