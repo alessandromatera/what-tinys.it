@@ -26,6 +26,7 @@ To do that follow this steps:
 2. Select the ArduinoISP sketch from File -> Examples
 3. Upload the sketch to the Arduino UNO board
 4. Open the watch sketch
+5. 
 
 This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code:
 ```
@@ -35,7 +36,7 @@ where:
 
  `tty.usbmodemfa131` is the serial port of Arduino board
  
- `/path/of/your/hex/file.hex` is the path of .hex file that can be thaken from the Arduino IDE enabling verbose output from Preferences->Show Verbose output during: -> compilation
+ `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling "verbose output" from `Preferences -> Show Verbose output during: -> compilation`
 
 
 ####The Case
