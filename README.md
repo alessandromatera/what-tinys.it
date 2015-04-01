@@ -20,7 +20,7 @@ When the button is pressed for a small period of time, the button's interrupt oc
 
 ####Upload the sketch
 To Upload the firmware i use avr in Mac terminal and an Arduino UNO as ISP programmer. 
-To do that follow this steps:
+To do that follow these steps:
 
 1. Connect the Arduino UNO board to PC or Mac.
 2. Select the `ArduinoISP` sketch from `File -> Examples`
@@ -28,25 +28,23 @@ To do that follow this steps:
 4. Open the watch sketch
 5. Compile the sketch using Arduino IDE
 6. Connect the SPI watch pins to Arduino UNO pins lin this way:
-	* Watch PIN `Reset` to Arduino PIN `10`
-	* Watch PIN `11` to Arduino PIN `11`
-	* Watch PIN `12` to Arduino PIN `12`
-	* Watch PIN `13` to Arduino PIN `13`
-	* Watch PIN `+` to Arduino PIN `3.3V`
-	* Watch PIN `-` to Arduino PIN `GND`
-7. On Mac terminal (i think is similar to windows user) write this
+	* Watch PIN `Reset - JP6` to Arduino PIN `10`
+	* Watch PIN `11 - JP3` to Arduino PIN `11`
+	* Watch PIN `12 - JP4` to Arduino PIN `12`
+	* Watch PIN `13 - JP5` to Arduino PIN `13`
+	* Watch PIN `V+ - JP1` to Arduino PIN `+3.3V`
+	* Watch PIN `GND - JP2` to Arduino PIN `GND`
+7. On Mac terminal (i think is similar for windows user) write this
 	```
-	avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
+	avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xDE:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
 	```
 	
 	where:
 	 - `tty.usbmodemfa131` is the serial port of Arduino board
 	 - `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling `verbose output` from `Preferences -> Show Verbose output during: -> compilation`
 	
-	
-
-This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code:
-
+All this stuff because i wanted to program the board using SPI not using Arduino bootloader. I Think that the watch can be programmed like an Arduino UNO using the `breadboard 8Mhz` bootloader and soldering two wires to pin `0` and `1` of the watch, but i've not tried it.
+I've have used fuses for disabling `BOD` so you need to modify the bootloader of Arduino to do this. (Maybe you can do this in sketch?).
 
 ####The Case
 The 3D printed case was realized by my brother Andrea Matera.
