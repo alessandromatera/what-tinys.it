@@ -234,7 +234,7 @@ void setClock(){
   }
 
   //now we can exit from programming mode.
-  //turn on all hoursLED for 1 second.
+  //turn on all LED for 1 second.
   oldSeconds = seconds;
   while(seconds-oldSeconds < 1){
     for (int i = 0; i <36; i++){
