@@ -19,9 +19,7 @@ After setup the timer2 overflow interrupt and the button change-pin interrupt, t
 When the button is pressed for a small period of time, the button's interrupt occur and the time is show up. Instead, if the button is pressed for two seconds, we entering in programming mode, where we can set the time: after all LEDs are turned on, we can release the button and the current hours LED is turned on. Pressing one time the button hours change to the next. To record the current hours you need to press the button for about 2 seconds. After the hours LED is switched off, release the button and the minutes LED is turned on. Like the hours LED push the button to choose the right minutes and then long press to record the minutes. After the minutes LED is turned off, all LEDs is turned on. The corrected time is show up.
 
 To Upload the firmware i use avr in terminal. This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code
-'''
-avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
-'''
+'avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i'
 
 
 ####The Case
