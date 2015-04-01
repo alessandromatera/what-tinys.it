@@ -23,27 +23,26 @@ To Upload the firmware i use avr in Mac terminal and an Arduino UNO as ISP progr
 To do that follow this steps:
 
 1. Connect the Arduino UNO board to PC or Mac.
-2. Select the ArduinoISP sketch from `File -> Examples`
+2. Select the `ArduinoISP` sketch from `File -> Examples`
 3. Upload the sketch to the Arduino UNO board
 4. Open the watch sketch
 5. Compile the sketch using Arduino IDE
-6. Connect the SPI watch pins to Arduino UNO pins like this
+6. Connect the SPI watch pins to Arduino UNO pins lin this way:
 	* Watch PIN `Reset` to Arduino PIN `10`
 	* Watch PIN `11` to Arduino PIN `11`
 	* Watch PIN `12` to Arduino PIN `12`
 	* Watch PIN `13` to Arduino PIN `13`
 	* Watch PIN `+` to Arduino PIN `3.3V`
 	* Watch PIN `-` to Arduino PIN `GND`
+7. On Mac terminal (i think is similar to windows user) write this
+	`avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i`
+	where:
+	 - `tty.usbmodemfa131` is the serial port of Arduino board
+	 - `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling "verbose output" from `Preferences -> Show Verbose output during: -> compilation`
+	
 	
 
 This because i wanted to program the board using SPI not using Arduino bootloader. To do that i've compiled the sketch using Arduino IDE and then i've passed the .hex file to avr using this code:
-```
-avrdude -v -v -v -v -cstk500v1 -pm328p  -P/dev/tty.usbmodemfa131 -b19200 -D -e -Ulock:w:0x3F:m -Uefuse:w:0x07:m -Uhfuse:w:0xde:m -Ulfuse:w:0xE2:m -Uflash:w:/path/of/your/hex/file.hex:i
-```
-where:
-
- - `tty.usbmodemfa131` is the serial port of Arduino board
- - `/path/of/your/hex/file.hex` is the path of .hex file that can be taken from the Arduino IDE enabling "verbose output" from `Preferences -> Show Verbose output during: -> compilation`
 
 
 ####The Case
