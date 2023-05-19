@@ -1,7 +1,7 @@
-#"What Tinys.it?"
-###A 3D printed LED watch with Atmega328P microcontroller programmed with Arduino
+# "What Tinys.it?"
+### A 3D printed LED watch with Atmega328P microcontroller programmed with Arduino
 
-####The Story
+#### The Story
 I wanted to build a LED watch with Arduino but, searching on the web, i could not find what i was looking for. So I've decided to build my own.
 I wanted to use Attiny85 microcontroller from my board [Tinys](http://www.tinys.it/) but it has only few I/O and can't be used to drive many LEDs. So i decided to use an Atmega328P (the same micro of Arduino UNO board) in TQFP package with 32 pin.
 
@@ -11,7 +11,7 @@ Why 32.768Khz Crystal? Because using prescaler to 128 we have 256 Hz, so 1 overf
 
 What about the name? Well, my web site is [Tinys.it](http://www.tinys.it/) :D
 
-####The Project
+#### The Project
 I wanted to build a watch with 60 LEDs but to keep the clock size small, i've decide to use only 32 LED (1 LED/100 seconds). But even if the microcontroller has 32 pin, they aren't all I/O: only 25 pins can be used for the 32 LEDs and the button. To drive a larger number of LEDs with few pins i've used the [Charlieplexing Matrix](http://en.wikipedia.org/wiki/Charlieplexing), in this way i can drive 6 LEDs with only 3 Pins. Becouse i can't use two different color of LEDs, to distinguish between hours and minutes, the minutes LED is blinking. 
 
 To reduce battery drain the watch is always in sleep. To show-up the time is needed to press the button.
@@ -20,12 +20,12 @@ As the clock hands, the hours LED isn't stay in the same position: is moving a b
 
 The watch is powered by a 3 Volt CR2032 battery. With this battery the LEDs resistors can be shorted.
 
-####The Firmware
+#### The Firmware
 After setup the timer2 overflow interrupt and the button change-pin interrupt, the microcontroller goes to sleep. Every time the timer2 goes overflow (1 overflow/seconds) the microcontroller wakes up and increase the seconds. 
 
 When the button is pressed for a small period of time, the button's interrupt occur and the time is show up. Instead, if the button is pressed for two seconds, we entering in programming mode, where we can set the time: after all LEDs are turned on, we can release the button and the current hours LED is turned on. Pressing one time the button hours change to the next. To record the current hours you need to press the button for about 2 seconds. After the hours LED is switched off, release the button and the minutes LED is turned on. Like the hours LED push the button to choose the right minutes and then long press to record the minutes. After the minutes LED is turned off, all LEDs is turned on. The corrected time is show up.
 
-####Upload the sketch
+#### Upload the sketch
 To Upload the firmware i use avr in Mac terminal and an Arduino UNO as ISP programmer. 
 
 To do that follow these steps:
@@ -55,5 +55,5 @@ All this stuff because i wanted to program the board using SPI not using Arduino
 
 I've have used fuses for disabling `BOD` so you need to modify the bootloader of Arduino to do this. (Maybe you can do this in sketch?).
 
-####The Case
+#### The Case
 The 3D printed case was realized by my brother Andrea Matera.
